@@ -5,6 +5,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class Setup {
@@ -16,10 +17,10 @@ public class Setup {
         ops.addArguments("--headed");
         driver = new FirefoxDriver(ops);
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
     @AfterTest
     public void closeDriver(){
-        driver.close();
+        //driver.close();
     }
 }
